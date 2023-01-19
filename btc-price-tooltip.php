@@ -32,7 +32,7 @@ function add_tooltip_to_btc($the_content)
     for ($i = 0, $c = count($btc_in_text);$i < $c;$i++)
     {
         //echo $btc_in_text[$i];
-        $the_content = preg_replace('#' . $btc_in_text[$i] . '#iu', '<span class="tooltip" data-tooltip="' . $btcAnswerUsd . '/ ' . $btcAnswerEUR . '">' . $btc_in_text[$i] . '</span>', $the_content);
+        $the_content = preg_replace('#(?<!<a[^>]*>)' . $btc_in_text[$i] . '(?![^<]*</a>)#iu', '<span class="tooltip" data-tooltip="' . $btcAnswerUsd . '/ ' . $btcAnswerEUR . '">' . $btc_in_text[$i] . '</span>', $the_content);
     }
 
     return $the_content;
